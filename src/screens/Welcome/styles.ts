@@ -26,21 +26,3 @@ export const Subtitle = styled.Text`
   margin-top: 5px;
   color: ${({theme}) => theme.colors.WHITE};
 `;
-
-export const Button = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.8
-})`
-  display: flex;
-  align-items: center;
-  margin-top: auto;
-  padding: 15px 40px;
-  background-color: ${({ theme }) => theme.colors.PRIMARY};
-  border-radius: 8px;
-`;
-
-export const ButtonText = styled.Text`
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0px;
-  color: ${({ theme }) => theme.colors.WHITE};
-`;

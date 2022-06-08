@@ -1,13 +1,12 @@
 import React from 'react';
 import Logo from '../../assets/logo.svg';
+import { Button } from '../../components/Button';
 
 import { 
   Container,
   LogoContainer,
   Title,
   Subtitle,
-  Button,
-  ButtonText
 } from './styles';
 
 export function Welcome() {
@@ -25,9 +24,7 @@ export function Welcome() {
         Não esqueça nunca mais de seus empréstimos.
       </Subtitle>
 
-      <Button>
-        <ButtonText>Começar</ButtonText>
-      </Button>
+      <Button title="Começar" />
     </Container>
   )
 }
