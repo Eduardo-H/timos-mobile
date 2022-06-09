@@ -1,35 +1,39 @@
 import React from 'react';
+import { Keyboard, KeyboardAvoidingView } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import Logo from '../../assets/logo.svg';
-import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
 
 import {
   Container,
   Header,
   Title,
   Form,
-  SignUpButton,
-  SignUpButtonText
+  FormItem
 } from './styles';
 
 export function SignIn() {
   return (
-    <Container>
-      <Header>
-        <Logo width="100" height="100" />
-        <Title>Login</Title>
-      </Header>
+    <KeyboardAvoidingView behavior="position" enabled>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Container>
+          <Header>
+            <Logo width="80" height="80" />
+            <Title>Login</Title>
+          </Header>
 
-      <Form>
-        
-      </Form>
-
-      <Button title='Entrar' onPress={() => {}} />
-
-      <SignUpButton>
-        <SignUpButtonText>
-          Não possui uma conta? Cadastre-se
-        </SignUpButtonText>
-      </SignUpButton>
-    </Container>
+          <Form>
+            <FormItem>
+              <Input placeholder="E-mail" />
+            </FormItem>
+            <FormItem>
+              <Input placeholder="Senha" />
+            </FormItem>
+          </Form>
+        </Container>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }

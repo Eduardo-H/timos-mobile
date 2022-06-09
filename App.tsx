@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import * as SplashScreen from 'expo-splash-screen';
 
 import {
   Inter_300Light,
@@ -10,7 +12,6 @@ import {
   Inter_700Bold
 } from '@expo-google-fonts/inter';
 
-import * as SplashScreen from 'expo-splash-screen';
 import theme from './src/global/styles/theme';
 import { SignIn } from './src/screens/SignIn';
 
@@ -49,8 +50,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <SignIn />
-      <StatusBar style="auto" />
+      <SafeAreaProvider onLayout={onLayoutRootView}>
+        <SignIn />
+        <StatusBar style="light" />
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }

@@ -3,6 +3,7 @@ export default {
     PRIMARY: '#4572E7',
     SECONDARY: '#2C2D38',
     BACKGROUND: '#1A1B27',
+    PLACEHOLDER: '#CCCCCC',
 
     GREENS: '#42CE00',
     RED: '#CA4141',

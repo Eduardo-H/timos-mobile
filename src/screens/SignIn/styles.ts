@@ -1,33 +1,32 @@
 import styled from 'styled-components/native';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 10px;
+  padding: 0px 20px;
+  background-color: ${({ theme }) => theme.colors.BACKGROUND};
 `;
 
 export const Header = styled.View`
-
+  height: auto;
 `;
 
 export const Title = styled.Text`
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
+  margin-top: 10px;
   color: ${({ theme }) => theme.colors.WHITE};
+  text-align: center;
 `;
 
 export const Form = styled.View`
-
+  width: 100%;
+  margin-top: 30px;
 `;
 
-export const SignUpButton = styled(BorderlessButton)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-`;
-
-export const SignUpButtonText = styled.Text`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.WHITE};
+export const FormItem = styled.View`
+  margin-bottom: 15px;
 `;
