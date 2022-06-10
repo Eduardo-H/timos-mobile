@@ -5,7 +5,7 @@ export default {
     BACKGROUND: '#1A1B27',
     PLACEHOLDER: '#CCCCCC',
 
-    GREENS: '#42CE00',
+    GREEN: '#42CE00',
     RED: '#CA4141',
 
     GRAY_50: '#F1F1F1',

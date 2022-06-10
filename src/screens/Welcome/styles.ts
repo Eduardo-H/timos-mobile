@@ -1,28 +1,31 @@
-import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
+import theme from '../../global/styles/theme';
 
-export const Container = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.BACKGROUND};
-  padding: 30px 10px;
-`;
-
-export const LogoContainer = styled.View`
-  margin-top: auto;
-  margin-bottom: 20px;
-`;
-
-export const Title = styled.Text`
-  font-size: 24px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.WHITE};
-`;
-
-export const Subtitle = styled.Text`
-  font-size: 18px;
-  font-weight: 300;
-  text-align: center;
-  margin-top: 5px;
-  color: ${({theme}) => theme.colors.WHITE};
-`;
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.colors.BACKGROUND,
+    paddingVertical: 25,
+    paddingHorizontal: 30,
+  },
+  logoContainer: {
+    marginTop: 'auto',
+    marginBottom: 20
+  },
+  title: {
+    fontFamily: theme.fonts.BOLD,
+    fontSize: 22,
+    color: theme.colors.WHITE,
+    textAlign: 'center'
+  },
+  subtitle: {
+    fontFamily: theme.fonts.LIGHT,
+    fontSize: 16,
+    color: theme.colors.WHITE,
+    marginTop: 5,
+    textAlign: 'center',
+    marginBottom: 'auto'
+  }
+});

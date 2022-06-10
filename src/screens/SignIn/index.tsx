@@ -1,39 +1,43 @@
 import React from 'react';
-import { Keyboard, KeyboardAvoidingView } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Text, View, TouchableOpacity } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Logo from '../../assets/logo.svg';
+import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
-import {
-  Container,
-  Header,
-  Title,
-  Form,
-  FormItem
-} from './styles';
+import { styles } from './styles';
 
 export function SignIn() {
   return (
-    <KeyboardAvoidingView behavior="position" enabled>
+    <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <Container>
-          <Header>
-            <Logo width="80" height="80" />
-            <Title>Login</Title>
-          </Header>
+        <View style={styles.header}>
+          <Logo width="95" height="95" />
+          <Text style={styles.title}>
+            Login
+          </Text>
+        </View>
+        <View style={styles.form}>
+          <View style={styles.formItem}>
+            <Input placeholder="E-mail" />
+          </View>
+          <View style={styles.formItem}>
+            <Input placeholder="Senha" />
+          </View>
+        </View>
 
-          <Form>
-            <FormItem>
-              <Input placeholder="E-mail" />
-            </FormItem>
-            <FormItem>
-              <Input placeholder="Senha" />
-            </FormItem>
-          </Form>
-        </Container>
+        <View style={styles.buttonContainer}>
+          <Button title="Entrar" />
+        </View>
+
+        <TouchableOpacity style={styles.signUpButton} activeOpacity={0.75}>
+          <Text style={styles.signUpButtonText}>
+            Não possui uma conta? Cadastre-se
+          </Text>
+        </TouchableOpacity>
       </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }

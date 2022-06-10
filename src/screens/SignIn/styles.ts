@@ -1,32 +1,45 @@
-import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
+import theme from '../../global/styles/theme';
 
-export const Container = styled(SafeAreaView)`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  height: 10px;
-  padding: 0px 20px;
-  background-color: ${({ theme }) => theme.colors.BACKGROUND};
-`;
-
-export const Header = styled.View`
-  height: auto;
-`;
-
-export const Title = styled.Text`
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: 10px;
-  color: ${({ theme }) => theme.colors.WHITE};
-  text-align: center;
-`;
-
-export const Form = styled.View`
-  width: 100%;
-  margin-top: 30px;
-`;
-
-export const FormItem = styled.View`
-  margin-bottom: 15px;
-`;
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: theme.colors.BACKGROUND,
+    paddingVertical: 25,
+    paddingHorizontal: 30
+  },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  title: {
+    fontFamily: theme.fonts.MEDIUM,
+    fontSize: 24,
+    color: theme.colors.WHITE,
+    textAlign: 'center',
+    marginTop: 5
+  },
+  form: {
+    width: '100%',
+    marginTop: 30
+  },
+  formItem: {
+    marginBottom: 15
+  },
+  buttonContainer: {
+    width: '50%',
+    alignSelf: 'center',
+    marginTop: 15    
+  },
+  signUpButton: {
+    alignSelf: 'center',
+    marginTop: 15,
+    padding: 5
+  },
+  signUpButtonText: {
+    fontFamily: theme.fonts.REGULAR,
+    fontSize: 15,
+    color: theme.colors.WHITE
+  }
+});

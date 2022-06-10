@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { TextInputProps } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import theme from '../../global/styles/theme';
 
-import { Container } from './styles';
+import { styles } from './styles';
 
 interface InputProps extends TextInputProps {
   disabled?: boolean;
@@ -19,12 +21,17 @@ export function Input({ disabled = false, ...rest }: InputProps) {
   }
 
   return (
-    <Container 
+    <TextInput 
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
-      isFocused={isFocused}
-      disabled={disabled} 
-      {...rest} 
+      style={
+        isFocused 
+        ? [styles.container, styles.focusedContainer]
+        : [styles.container]
+      }
+      selectionColor={theme.colors.WHITE}
+      placeholderTextColor={theme.colors.PLACEHOLDER}
+      {...rest}
     />
   );
 }
