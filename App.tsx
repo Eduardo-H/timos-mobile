@@ -12,8 +12,7 @@ import {
   Inter_700Bold
 } from '@expo-google-fonts/inter';
 
-import { Welcome } from './src/screens/Welcome';
-import { SignIn } from './src/screens/SignIn';
+import { Routes } from './src/routes';
 
 import theme from './src/global/theme';
 
@@ -53,7 +52,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider onLayout={onLayoutRootView}>
-        <Welcome />
+        <Routes />
         <StatusBar style="light" />
       </SafeAreaProvider>
     </ThemeProvider>

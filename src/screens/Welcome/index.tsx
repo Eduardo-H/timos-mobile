@@ -1,9 +1,17 @@
+import { useNavigation } from '@react-navigation/native';
+
 import Logo from '../../assets/logo.svg';
 import { Button } from '../../components/Button';
 
 import { Container, LogoContainer, Title, Subtitle } from './styles';
 
 export function Welcome() {
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('signup');
+  }
+
   return (
     <Container>
       <LogoContainer>
@@ -18,7 +26,7 @@ export function Welcome() {
         Não esqueça nunca mais de seus empréstimos.
       </Subtitle>
 
-      <Button title="Começar" />
+      <Button title="Começar" onPress={handleStart} />
     </Container>
   )
 }
