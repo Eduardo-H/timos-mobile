@@ -13,6 +13,8 @@ import {
 
 import { Welcome } from './src/screens/Welcome';
 import { SignIn } from './src/screens/SignIn';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/global/theme';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -48,9 +50,11 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider onLayout={onLayoutRootView}>
-      <SignIn />
-      <StatusBar style="light" />
-    </SafeAreaProvider>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider onLayout={onLayoutRootView}>
+        <SignIn />
+        <StatusBar style="light" />
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }

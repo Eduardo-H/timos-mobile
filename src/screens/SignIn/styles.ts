@@ -27,6 +27,10 @@ export const styles = StyleSheet.create({
   formItem: {
     marginBottom: 15
   },
+  errorMessage: {
+    color: theme.colors.RED,
+    marginTop: 2
+  },
   buttonContainer: {
     width: '50%',
     alignSelf: 'center',
