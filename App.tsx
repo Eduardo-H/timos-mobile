@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
+import { ThemeProvider } from 'styled-components/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -13,7 +14,7 @@ import {
 
 import { Welcome } from './src/screens/Welcome';
 import { SignIn } from './src/screens/SignIn';
-import { ThemeProvider } from 'styled-components/native';
+
 import theme from './src/global/theme';
 
 export default function App() {

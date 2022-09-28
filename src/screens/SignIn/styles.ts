@@ -1,49 +1,55 @@
-import { StyleSheet } from 'react-native';
-import theme from '../../global/styles/theme';
+import styled from 'styled-components/native';
+import theme from '../../global/theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.BACKGROUND,
-    paddingVertical: 25,
-    paddingHorizontal: 30
-  },
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  title: {
-    fontFamily: theme.fonts.MEDIUM,
-    fontSize: 24,
-    color: theme.colors.WHITE,
-    textAlign: 'center',
-    marginTop: 5
-  },
-  form: {
-    width: '100%',
-    marginTop: 30
-  },
-  formItem: {
-    marginBottom: 15
-  },
-  errorMessage: {
-    color: theme.colors.RED,
-    marginTop: 2
-  },
-  buttonContainer: {
-    width: '50%',
-    alignSelf: 'center',
-    marginTop: 15    
-  },
-  signUpButton: {
-    alignSelf: 'center',
-    marginTop: 15,
-    padding: 5
-  },
-  signUpButtonText: {
-    fontFamily: theme.fonts.REGULAR,
-    fontSize: 15,
-    color: theme.colors.WHITE
-  }
-});
+export const Container = styled.SafeAreaView`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background-color: ${theme.colors.BACKGROUND};
+  padding: 25px 30px;
+`;
+
+export const Header = styled.View`
+  display: flex;
+  align-items: center;
+`;
+
+export const Title = styled.Text`
+  font-size: 24px;
+  font-family: ${theme.fonts.MEDIUM};
+  color: ${theme.colors.WHITE};
+  text-align: center;
+  margin-top: 5px;
+`;
+
+export const Form = styled.View`
+  width: 100%;
+  margin-top: 30px;
+`;
+
+export const FormItem = styled.View`
+  margin-bottom: 15px;
+`;
+
+export const ErrorMessage = styled.Text`
+  color: ${theme.colors.RED};
+  margin-top: 2px;
+`
+
+export const SingInButtonContainer = styled. View`
+  width: 50%;
+  align-self: center;
+  margin-top: 15px;
+`;
+
+export const SignUpButton = styled.TouchableOpacity`
+  align-self: center;
+  margin-top: 15px;
+  padding: 5px;
+`;
+
+export const SignUpButtonText = styled.Text`
+  font-size: 15px;
+  font-family: ${theme.fonts.LIGHT};
+  color: ${theme.colors.WHITE};
+`;

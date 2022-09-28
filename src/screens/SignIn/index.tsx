@@ -1,16 +1,24 @@
-import React from 'react';
+import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import { Text, View, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Logo from '../../assets/logo.svg';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
-import { styles } from './styles';
-import { RectButton } from 'react-native-gesture-handler';
+import {
+  Container,
+  Header,
+  Title,
+  Form,
+  FormItem,
+  ErrorMessage,
+  SingInButtonContainer,
+  SignUpButton,
+  SignUpButtonText
+} from './styles';
 
 interface SignInFormData {
   email: string;
@@ -37,16 +45,14 @@ export function SignIn() {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
+      <Container>
+        <Header>
           <Logo width="95" height="95" />
-          <Text style={styles.title}>
-            Login
-          </Text>
-        </View>
+          <Title>Login</Title>
+        </Header>
 
-        <View style={styles.form}>
-          <View style={styles.formItem}>
+        <Form>
+          <FormItem>
             <Controller
               control={control}
               name="email"
@@ -61,11 +67,11 @@ export function SignIn() {
               )}              
             />
             {errors.email && (
-              <Text style={styles.errorMessage}>{errors.email.message}</Text>
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
             )}
-          </View>
+          </FormItem>
 
-          <View style={styles.formItem}>
+          <FormItem>
             <Controller
               control={control}
               name="password"
@@ -82,21 +88,21 @@ export function SignIn() {
             />
 
             {errors.password && (
-              <Text style={styles.errorMessage}>{errors.password.message}</Text>
+              <ErrorMessage>{errors.password.message}</ErrorMessage>
             )}
-          </View>
-        </View>
+          </FormItem>
+        </Form>
         
-        <View style={styles.buttonContainer}>
+        <SingInButtonContainer>
           <Button title="Entrar" onPress={handleSubmit(handleSignIn)} />
-        </View>
+        </SingInButtonContainer>
 
-        <TouchableOpacity style={styles.signUpButton} activeOpacity={0.8}>
-          <Text style={styles.signUpButtonText}>
+        <SignUpButton activeOpacity={0.8}>
+          <SignUpButtonText>
             Não possui uma conta? Cadastre-se
-          </Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+          </SignUpButtonText>
+        </SignUpButton>
+      </Container>
     </TouchableWithoutFeedback>
   );
 }

@@ -17,14 +17,14 @@ export const LogoContainer = styled.View`
 
 export const Title = styled.Text`
   font-size: 22px;
-  font-family: Inter_500Medium;
+  font-family: ${theme.fonts.MEDIUM};
   color: ${theme.colors.WHITE};
   text-align: center;
 `;
 
 export const Subtitle = styled.Text`
   font-size: 16px;
-  font-family: Inter_300Light;
+  font-family: ${theme.fonts.LIGHT};
   color: ${theme.colors.WHITE};
   text-align: center;
   margin-top: 5px;
