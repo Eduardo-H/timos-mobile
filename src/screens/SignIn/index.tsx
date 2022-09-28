@@ -46,7 +46,7 @@ export function SignIn() {
   }
 
   async function handleSignIn({ email, password }: SignInFormData) {
-    console.log({ email, password });
+    navigation.navigate('home');
   }
 
   return (
