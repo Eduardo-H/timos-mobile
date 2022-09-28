@@ -9,7 +9,7 @@ export function Welcome() {
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate('signup');
+    navigation.navigate('signIn');
   }
 
   return (

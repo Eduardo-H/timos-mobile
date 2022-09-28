@@ -19,6 +19,7 @@ import {
   SignUpButton,
   SignUpButtonText
 } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 interface SignInFormData {
   email: string;
@@ -38,6 +39,12 @@ export function SignIn() {
       password: ''
     }
   });
+  
+  const navigation = useNavigation();
+
+  function handleSignUp() {
+    navigation.navigate('signUp');
+  }
 
   async function handleSignIn({ email, password }: SignInFormData) {
     console.log({ email, password });
@@ -97,7 +104,7 @@ export function SignIn() {
           <Button title="Entrar" onPress={handleSubmit(handleSignIn)} />
         </SingInButtonContainer>
 
-        <SignUpButton activeOpacity={0.8}>
+        <SignUpButton activeOpacity={0.8} onPress={handleSignUp}>
           <SignUpButtonText>
             Não possui uma conta? Cadastre-se
           </SignUpButtonText>
