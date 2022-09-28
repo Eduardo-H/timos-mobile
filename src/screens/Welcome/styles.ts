@@ -1,31 +1,32 @@
-import { StyleSheet } from 'react-native';
-import theme from '../../global/styles/theme';
+import styled from 'styled-components/native';
+import theme from '../../global/theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.BACKGROUND,
-    paddingVertical: 25,
-    paddingHorizontal: 30,
-  },
-  logoContainer: {
-    marginTop: 'auto',
-    marginBottom: 20
-  },
-  title: {
-    fontFamily: theme.fonts.BOLD,
-    fontSize: 22,
-    color: theme.colors.WHITE,
-    textAlign: 'center'
-  },
-  subtitle: {
-    fontFamily: theme.fonts.LIGHT,
-    fontSize: 16,
-    color: theme.colors.WHITE,
-    marginTop: 5,
-    textAlign: 'center',
-    marginBottom: 'auto'
-  }
-});
+export const Container = styled.SafeAreaView`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: ${theme.colors.BACKGROUND};
+  padding: 25px 30px;
+`;
+
+export const LogoContainer = styled.View`
+  margin-top: auto;
+  margin-bottom: 20px;
+`;
+
+export const Title = styled.Text`
+  font-size: 22px;
+  font-family: Inter_500Medium;
+  color: ${theme.colors.WHITE};
+  text-align: center;
+`;
+
+export const Subtitle = styled.Text`
+  font-size: 16px;
+  font-family: Inter_300Light;
+  color: ${theme.colors.WHITE};
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: auto;
+`;

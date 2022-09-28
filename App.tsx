@@ -52,7 +52,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider onLayout={onLayoutRootView}>
-        <SignIn />
+        <Welcome />
         <StatusBar style="light" />
       </SafeAreaProvider>
     </ThemeProvider>

@@ -1,28 +1,24 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
 import Logo from '../../assets/logo.svg';
 import { Button } from '../../components/Button';
 
-import { styles } from './styles';
+import { Container, LogoContainer, Title, Subtitle } from './styles';
 
 export function Welcome() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.logoContainer}>
+    <Container>
+      <LogoContainer>
         <Logo width="95" height="95" />
-      </View>
+      </LogoContainer>
 
-      <Text style={styles.title}>
+      <Title>
         Seja bem-vindo(a) ao Timos
-      </Text>
+      </Title>
 
-      <Text style={styles.subtitle}>
+      <Subtitle>
         Não esqueça nunca mais de seus empréstimos.
-      </Text>
+      </Subtitle>
 
       <Button title="Começar" />
-    </SafeAreaView>
+    </Container>
   )
 }
