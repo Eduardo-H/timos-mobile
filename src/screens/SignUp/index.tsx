@@ -14,7 +14,6 @@ import {
   Title,
   Form,
   FormItem,
-  ErrorMessage,
   SingUpButtonContainer,
   SignInButton,
   SignInButtonText
@@ -75,13 +74,10 @@ export function SignUp() {
                   placeholder="Nome" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.name != undefined} 
+                  error={errors.name}
                 />
               )}              
             />
-            {errors.name && (
-              <ErrorMessage>{errors.name.message}</ErrorMessage>
-            )}
           </FormItem>
 
           <FormItem>
@@ -94,13 +90,10 @@ export function SignUp() {
                   placeholder="E-mail" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.email != undefined} 
+                  error={errors.email}
                 />
               )}              
             />
-            {errors.email && (
-              <ErrorMessage>{errors.email.message}</ErrorMessage>
-            )}
           </FormItem>
 
           <FormItem>
@@ -113,15 +106,11 @@ export function SignUp() {
                   placeholder="Senha" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.password != undefined} 
+                  error={errors.name}
                   secureTextEntry
                 />
               )}
             />
-
-            {errors.password && (
-              <ErrorMessage>{errors.password.message}</ErrorMessage>
-            )}
           </FormItem>
 
           <FormItem>
@@ -134,15 +123,11 @@ export function SignUp() {
                   placeholder="Confirmar senha" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.confirmPassword != undefined} 
+                  error={errors.name}
                   secureTextEntry
                 />
               )}
             />
-
-            {errors.confirmPassword && (
-              <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
-            )}
           </FormItem>
         </Form>
         

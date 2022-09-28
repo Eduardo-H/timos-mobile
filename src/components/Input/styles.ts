@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { TextInput, TextInputProps } from 'react-native';
+import theme from '../../global/theme';
 
 interface InputProps extends TextInputProps {
   isFocused: boolean;
@@ -25,4 +26,10 @@ export const Container = styled(TextInput)<InputProps>`
     border: 2px;
     border-color: ${theme.colors.RED};    
   `};
+`;
+
+export const ErrorMessage = styled.Text`
+  font-size: 13px;
+  color: ${theme.colors.RED};
+  margin-top: 2px;
 `;

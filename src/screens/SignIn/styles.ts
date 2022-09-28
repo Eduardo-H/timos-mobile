@@ -31,11 +31,6 @@ export const FormItem = styled.View`
   margin-bottom: 15px;
 `;
 
-export const ErrorMessage = styled.Text`
-  color: ${theme.colors.RED};
-  margin-top: 2px;
-`
-
 export const SingInButtonContainer = styled. View`
   width: 50%;
   align-self: center;

@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { FieldError } from 'react-hook-form';
 import { TextInputProps } from 'react-native';
+
 import theme from '../../global/theme';
 
-import { Container } from './styles';
+import { Container, ErrorMessage } from './styles';
 
 interface InputProps extends TextInputProps {
-  isInvalid?: boolean;
+  error: FieldError | undefined;
   disabled?: boolean;
 }
 
 export function Input({ 
-  isInvalid = false, 
+  error,
   disabled = false, 
   ...rest 
 }: InputProps) {
@@ -25,14 +27,21 @@ export function Input({
   }
 
   return (
-    <Container 
-      onFocus={handleInputFocus}
-      onBlur={handleInputBlur}
-      isFocused={isFocused}
-      isInvalid={isInvalid}
-      disabled={disabled} 
-      placeholderTextColor={theme.colors.PLACEHOLDER}
-      {...rest}
-    />
+    <>
+      <Container 
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        isFocused={isFocused}
+        isInvalid={error !== undefined}
+        disabled={disabled} 
+        placeholderTextColor={theme.colors.PLACEHOLDER}
+        selectionColor={theme.colors.WHITE}
+        {...rest}
+      />
+
+        {error && (
+          <ErrorMessage>{error.message}</ErrorMessage>
+        )}
+    </>
   );
 }

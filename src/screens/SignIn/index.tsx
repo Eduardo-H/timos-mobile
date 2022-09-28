@@ -14,7 +14,6 @@ import {
   Title,
   Form,
   FormItem,
-  ErrorMessage,
   SingInButtonContainer,
   SignUpButton,
   SignUpButtonText
@@ -69,13 +68,10 @@ export function SignIn() {
                   placeholder="E-mail" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.email != undefined} 
+                  error={errors.email} 
                 />
               )}              
             />
-            {errors.email && (
-              <ErrorMessage>{errors.email.message}</ErrorMessage>
-            )}
           </FormItem>
 
           <FormItem>
@@ -88,15 +84,11 @@ export function SignIn() {
                   placeholder="Senha" 
                   onChangeText={onChange}
                   value={value}
-                  isInvalid={errors.password != undefined} 
+                  error={errors.password} 
                   secureTextEntry
                 />
               )}
             />
-
-            {errors.password && (
-              <ErrorMessage>{errors.password.message}</ErrorMessage>
-            )}
           </FormItem>
         </Form>
         
