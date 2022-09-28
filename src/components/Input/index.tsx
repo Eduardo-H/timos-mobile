@@ -39,9 +39,9 @@ export function Input({
         {...rest}
       />
 
-        {error && (
-          <ErrorMessage>{error.message}</ErrorMessage>
-        )}
+      {error && (
+        <ErrorMessage>{error.message}</ErrorMessage>
+      )}
     </>
   );
 }

@@ -16,7 +16,7 @@ export function HomeHeader() {
   return (
     <Container>
       <UserInfo>
-        <UserImg activeOpacity={0.8}>
+        <UserImg activeOpacity={0.75}>
           <UserImgText>
             EO
           </UserImgText>
