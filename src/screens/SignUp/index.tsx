@@ -1,10 +1,13 @@
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useToast } from 'react-native-toast-notifications';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Logo from '../../assets/logo.svg';
 
+import { api } from '../../services/api';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
@@ -18,7 +21,8 @@ import {
   SignInButton,
   SignInButtonText
 } from './styles';
-import { useNavigation } from '@react-navigation/native';
+import axios, { AxiosError } from 'axios';
+import { useState } from 'react';
 
 interface SignUpFormData {
   name: string;
@@ -31,7 +35,7 @@ const signUpFormSchema = yup.object({
   name: yup.string().required('Este campo é obrigatório'),
   email: yup.string().required('Este campo é obrigatório').email('E-mail inválido'),
   password: yup.string().required('Este campo é obrigatório'),
-  confirmPassword: yup.string().required('Este campo é obrigatório'),
+  confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'As senhas devem ser iguais').required('Este campo é obrigatório'),
 }).required();
 
 export function SignUp() {
@@ -45,14 +49,32 @@ export function SignUp() {
     }
   });
 
+  const [isSubmiting, setIsSubmiting] = useState(false);
   const navigation = useNavigation();
+  const toast = useToast();
 
   function handleSignIn() {
     navigation.navigate('signIn');
   }
 
-  async function handleSignUp({ name, email, password, confirmPassword }: SignUpFormData) {
-    console.log({ name, email, password, confirmPassword });
+  async function handleSignUp({ name, email, password }: SignUpFormData) {
+    try {
+      setIsSubmiting(true);
+
+      const response = await api.post('/users', {
+        name,
+        email,
+        password
+      });
+
+      setIsSubmiting(false);
+
+      navigation.navigate('signIn');
+    } catch (error: any) {
+      toast.show('O e-mail informado já está em uso', { type: 'danger' });
+    }
+
+    setIsSubmiting(false);
   }
 
   return (
@@ -106,7 +128,7 @@ export function SignUp() {
                   placeholder="Senha" 
                   onChangeText={onChange}
                   value={value}
-                  error={errors.name}
+                  error={errors.password}
                   secureTextEntry
                 />
               )}
@@ -123,7 +145,7 @@ export function SignUp() {
                   placeholder="Confirmar senha" 
                   onChangeText={onChange}
                   value={value}
-                  error={errors.name}
+                  error={errors.confirmPassword}
                   secureTextEntry
                 />
               )}
@@ -132,7 +154,7 @@ export function SignUp() {
         </Form>
         
         <SingUpButtonContainer>
-          <Button title="Cadastrar" onPress={handleSubmit(handleSignUp)} />
+          <Button title="Cadastrar" isLoading={isSubmiting} onPress={handleSubmit(handleSignUp)} />
         </SingUpButtonContainer>
 
         <SignInButton activeOpacity={0.8} onPress={handleSignIn}>

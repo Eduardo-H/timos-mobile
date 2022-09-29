@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ToastProvider } from 'react-native-toast-notifications';
 import * as SplashScreen from 'expo-splash-screen';
 
 import {
@@ -15,6 +16,7 @@ import {
 import { Routes } from './src/routes';
 
 import theme from './src/global/theme';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -51,10 +53,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaProvider onLayout={onLayoutRootView}>
-        <Routes />
-        <StatusBar style="light" />
-      </SafeAreaProvider>
+      <ToastProvider placement="top" animationType="slide-in" duration={3000} offset={getStatusBarHeight() + 10}>
+        <SafeAreaProvider onLayout={onLayoutRootView}>
+          <Routes />
+          <StatusBar style="light" />
+        </SafeAreaProvider>
+      </ToastProvider>
     </ThemeProvider>
   );
 }
