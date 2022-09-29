@@ -23,3 +23,34 @@ export const FinancialHealthCardContainer = styled.View`
   margin-top: 10px;
   gap: 10px;
 `;
+
+export const QuickActionsContainer = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px 0px 20px 0px;
+`;
+
+export const LoanButton = styled.TouchableOpacity`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: ${theme.colors.SECONDARY};
+  border-radius: 5px;
+  padding: 15px;
+`;
+
+export const LoanButtonTitleContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LoanButonLeftIcon = styled.View`
+  margin-right: 12px;
+`;
+
+export const LoanButtonTitle = styled.Text`
+  font-size: 14px;
+  font-family: ${theme.fonts.REGULAR};
+  color: ${theme.colors.WHITE};
+`;
