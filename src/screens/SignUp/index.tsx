@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useToast } from 'react-native-toast-notifications';
@@ -21,8 +22,6 @@ import {
   SignInButton,
   SignInButtonText
 } from './styles';
-import axios, { AxiosError } from 'axios';
-import { useState } from 'react';
 
 interface SignUpFormData {
   name: string;

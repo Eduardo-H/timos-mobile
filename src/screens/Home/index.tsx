@@ -8,7 +8,14 @@ import { SmallButton } from '../../components/SmallButton';
 import theme from '../../global/theme';
 
 import { 
-  Container, FinancialHealthCardContainer, FinancialHealthTitle, LoanButonLeftIcon, LoanButton, LoanButtonTitle, LoanButtonTitleContainer, QuickActionsContainer
+  Container, 
+  FinancialHealthCardContainer, 
+  FinancialHealthTitle, 
+  LoanButonLeftIcon, 
+  LoanButton, 
+  LoanButtonTitle, 
+  LoanButtonTitleContainer, 
+  QuickActionsContainer
 } from './styles';
 
 export function Home() {

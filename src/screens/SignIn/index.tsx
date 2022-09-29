@@ -1,10 +1,13 @@
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useToast } from 'react-native-toast-notifications';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Logo from '../../assets/logo.svg';
 
+import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
@@ -18,7 +21,6 @@ import {
   SignUpButton,
   SignUpButtonText
 } from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 interface SignInFormData {
   email: string;
@@ -38,7 +40,9 @@ export function SignIn() {
       password: ''
     }
   });
-  
+
+  const { signIn, loading } = useAuth();
+  const toast = useToast();
   const navigation = useNavigation();
 
   function handleSignUp() {
@@ -46,7 +50,13 @@ export function SignIn() {
   }
 
   async function handleSignIn({ email, password }: SignInFormData) {
-    navigation.navigate('home');
+    try {
+      signIn(email, password);
+
+      navigation.navigate('home');
+    } catch (error: any) {
+      toast.show('E-mail e/ou senha incorreta', { type: 'danger' });
+    }
   }
 
   return (
@@ -93,7 +103,7 @@ export function SignIn() {
         </Form>
         
         <SingInButtonContainer>
-          <Button title="Entrar" onPress={handleSubmit(handleSignIn)} />
+          <Button title="Entrar" isLoading={loading} onPress={handleSubmit(handleSignIn)} />
         </SingInButtonContainer>
 
         <SignUpButton activeOpacity={0.8} onPress={handleSignUp}>

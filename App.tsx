@@ -17,6 +17,7 @@ import { Routes } from './src/routes';
 
 import theme from './src/global/theme';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { AuthProvider } from './src/hooks/useAuth';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -53,12 +54,14 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <ToastProvider placement="top" animationType="slide-in" duration={3000} offset={getStatusBarHeight() + 10}>
-        <SafeAreaProvider onLayout={onLayoutRootView}>
-          <Routes />
-          <StatusBar style="light" />
-        </SafeAreaProvider>
-      </ToastProvider>
+      <AuthProvider>
+        <ToastProvider placement="top" animationType="slide-in" duration={3000} offset={getStatusBarHeight() + 10}>
+          <SafeAreaProvider onLayout={onLayoutRootView}>
+            <Routes />
+            <StatusBar style="light" />
+          </SafeAreaProvider>
+        </ToastProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

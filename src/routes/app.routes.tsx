@@ -13,7 +13,7 @@ export function AppRoutes() {
       <Screen name="welcome" component={Welcome} />
       <Screen name="signIn" component={SignIn} />
       <Screen name="signUp" component={SignUp} />
-      <Screen name="home" component={Home} />
+      <Screen name="home" component={Home} options={{ gestureEnabled: false }} />
     </Navigator>
   )
 }
